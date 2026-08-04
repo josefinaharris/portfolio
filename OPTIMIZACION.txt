@@ -1,0 +1,12 @@
+OPTIMIZACIÓN DE RENDIMIENTO REALIZADA
+
+- Imágenes publicadas convertidas a WebP y redimensionadas según su uso.
+- Video principal reducido de 2560x1440/60 fps a 1280x720/30 fps.
+- Video sin pista de audio innecesaria y preparado para reproducción web progresiva.
+- Imagen de portada agregada al video para mejorar la carga inicial.
+- Carga diferida (lazy loading) y decodificación asíncrona aplicadas a imágenes fuera de pantalla.
+- Dimensiones width y height añadidas para reducir saltos de contenido.
+- Referencias CSS e imágenes de portada actualizadas a WebP.
+- Optimización de renderizado aplicada a los casos de estudio fuera de pantalla.
+
+La estructura visual, los textos y las funciones del sitio se conservaron.
