@@ -2,537 +2,727 @@
 
 <html lang="es">
 <head>
-<!-- Configuración básica -->
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Portfolio profesional de Josefina Harris, comunicadora digital, creadora de contenido y editora audiovisual." name="description"/>
 <meta content="Josefina Harris" name="author"/>
-<meta content="#19284C" name="theme-color"/>
+<meta content="#07152d" name="theme-color"/>
 <meta content="dark" name="color-scheme"/>
-<!-- Información para compartir -->
 <meta content="Josefina Harris | Comunicación digital y edición audiovisual" property="og:title"/>
 <meta content="Portfolio de comunicación digital, creación de contenido, diseño y producción audiovisual." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="es_AR" property="og:locale"/>
-<title>Josefina Harris | Portfolio</title>
-<!-- Tipografía funcional -->
+<title>
+   Josefina Harris | Portfolio
+  </title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Questrial&amp;display=swap" rel="stylesheet"/>
-<!--
-        Cuando estén disponibles los archivos definitivos:
-        - Incorporar el favicon con el monograma JH.
-        - Incorporar Heading Now únicamente si se cuenta con la licencia.
-    -->
-<!-- Hoja de estilos -->
-<link href="styles.css?v=20260804-9" rel="stylesheet"/>
-<!-- JavaScript -->
-<script defer="" src="script.js?v=20260804-6"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=20261003-localhost-v6" rel="stylesheet"/>
+<script defer="" src="script.js?v=20261003-localhost-v6">
+</script>
 </head>
 <body>
-<!-- Accesibilidad: permite saltar la navegación -->
 <a class="skip-link" href="#contenido-principal">
-        Saltar al contenido principal
-    </a>
-<!-- =====================================================
-         HEADER
-    ====================================================== -->
+   Saltar al contenido principal
+  </a>
 <header class="site-header" id="site-header">
 <div class="site-header__container container">
-<!-- Identidad -->
 <a aria-label="Ir al inicio del portfolio de Josefina Harris" class="brand" href="#inicio">
-<img alt="Josefina Harris" class="brand__logo" data-image-base="paginawebfotos/logo-josefina-harris" decoding="async" fetchpriority="high" height="450" src="paginawebfotos/logo-josefina-harris.webp" width="600"/>
+
+<span class="brand__text">JOSEFINA HARRIS · PORTFOLIO</span>
 </a>
-<!-- Botón del menú móvil -->
-<button aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir menú de navegación" class="menu-toggle" type="button">
-<span aria-hidden="true" class="menu-toggle__line"></span>
-<span aria-hidden="true" class="menu-toggle__line"></span>
-<span aria-hidden="true" class="menu-toggle__line"></span>
-</button>
-<!-- Navegación principal -->
-<nav aria-label="Navegación principal" class="main-navigation" id="main-navigation">
-<ul class="main-navigation__list">
-<li class="main-navigation__item">
-<a class="main-navigation__link" data-navigation-link="" href="#perfil">Sobre mí</a>
-</li><li class="main-navigation__item">
-<a class="main-navigation__link" data-navigation-link="" href="#proyectos">Proyectos</a>
-</li><li class="main-navigation__item"><a class="main-navigation__link" data-navigation-link="" href="#capacidades">Habilidades</a></li><li class="main-navigation__item">
-<a class="main-navigation__link" data-navigation-link="" href="#contacto">Contacto</a>
-</li></ul>
-<a class="button button--primary main-navigation__contact" href="mailto:josefina.harris.cdr@gmail.com">
-                    Contactarme
-                </a>
-</nav>
+<a class="site-header__contact" href="#contacto">
+     CONTACTO
+     <span aria-hidden="true">
+      ↘
+     </span>
+</a>
 </div>
 </header>
-<!-- =====================================================
-         CONTENIDO PRINCIPAL
-    ====================================================== -->
 <main id="contenido-principal">
-<!-- =================================================
-             HERO
-        ================================================== -->
-<!-- =================================================
-             PROYECTOS DESTACADOS
-        ================================================== -->
-<!-- =================================================
-             CASOS DE ESTUDIO
-        ================================================== -->
-<!-- =================================================
-             SOBRE MÍ
-        ================================================== -->
-<!-- =================================================
-             CAPACIDADES
-        ================================================== -->
-<!-- =================================================
-             EXPERIENCIA
-        ================================================== -->
-<!-- =================================================
-             MÉTRICAS
-        ================================================== -->
-<!-- =================================================
-             PROCESO
-        ================================================== -->
-<!-- =================================================
-             CONTACTO
-        ================================================== -->
 <section aria-labelledby="hero-title" class="hero" data-section="" id="inicio">
-<div class="hero__container container">
-<div class="hero__content">
-<p class="eyebrow">Comunicación digital · Community management · Edición audiovisual</p>
-<h1 class="hero__title" id="hero-title">Josefina Harris</h1><p class="hero__tagline">Ideas que encuentran su forma.</p>
-<p class="hero__description">Cada proyecto es una nueva forma de contar una historia. Descubrí cómo la transformo en contenido.</p>
-<div class="hero__actions">
-<a class="button button--primary" href="#proyectos">Conocer mi trabajo <span aria-hidden="true">↘</span></a>
-<a class="button button--secondary" href="mailto:josefina.harris.cdr@gmail.com">Contactarme</a>
+<div aria-hidden="true" class="hero__grid">
 </div>
-</div>
-<!-- Espacio preparado para el video definitivo -->
-<div aria-label="Espacio reservado para el futuro video de presentación" class="hero__media"><video aria-label="Video de presentación de Josefina Harris" autoplay="" class="hero__video" loop="" muted="" playsinline="" poster="paginawebfotos/videohero-poster.webp" preload="metadata"><source src="paginawebvideos/videohero-optimized.mp4" type="video/mp4"/>Tu navegador no puede reproducir el video de presentación.</video></div>
-</div>
-<a aria-label="Continuar hacia la presentación personal" class="hero__scroll-indicator" href="#perfil">
-<span>Explorar</span>
-<span aria-hidden="true">↓</span>
+<div class="hero__masthead container">
+<h1 class="sr-only" id="hero-title">Proyectos</h1>
+<a class="hero__banner-link" href="#trabajo" aria-label="Ir a la sección El trabajo detrás de cada proyecto">
+<img class="hero__banner-image" src="paginawebfotos/banner.png" alt="Proyectos · portfolio de Josefina Harris" width="1920" height="1080" decoding="async" fetchpriority="high"/>
 </a>
-</section><section aria-labelledby="profile-title" class="profile section profile--compact" data-section="" id="perfil">
+<p class="hero__disciplines">Comunicación digital · Community management · Edición audiovisual</p>
+</div>
+<div aria-label="Menú visual del portfolio" aria-roledescription="carrusel" class="hero-deck" data-hero-carousel="">
+<button aria-label="Ver tarjeta anterior" class="hero-deck__arrow hero-deck__arrow--prev" data-hero-prev="" type="button">
+<span aria-hidden="true">
+       ←
+      </span>
+</button>
+<div class="hero-deck__viewport">
+<div class="hero-deck__track" data-hero-track="">
+<button aria-pressed="true" class="nav-card nav-card--about" data-card-title="Sobre mí" data-hero-card="" data-target="#perfil" type="button">
+<span class="nav-card__number">
+         01
+        </span>
+<span class="nav-card__media">
+<img alt="Fotografía de Josefina Harris" decoding="async" fetchpriority="high" height="1600" src="paginawebfotos/foto-josefina.jpg" width="1200"/>
+</span>
+<span class="nav-card__content">
+<span class="nav-card__title">
+          Sobre mí
+         </span>
+</span>
+</button>
+<button aria-pressed="false" class="nav-card" data-card-title="Gimnasia Formativas" data-hero-card="" data-target="#proyecto-gimnasia" type="button">
+<span class="nav-card__number">
+         02
+        </span>
+<span class="nav-card__media">
+<img alt="Portada de Gimnasia Formativas" decoding="async" height="1125" src="paginawebfotos/pdgimnasia.jpg" width="900"/>
+</span>
+<span class="nav-card__content">
+<span class="nav-card__title">
+          Gimnasia Formativas
+         </span>
+</span>
+</button>
+<button aria-pressed="false" class="nav-card" data-card-title="JOO.BJRS" data-hero-card="" data-target="#proyecto-joo-bjrs" type="button">
+<span class="nav-card__number">
+         03
+        </span>
+<span class="nav-card__media">
+<img alt="Portada de JOO.BJRS" decoding="async" height="1125" src="paginawebfotos/pdjoo.jpg" width="900"/>
+</span>
+<span class="nav-card__content">
+<span class="nav-card__title">
+          JOO.BJRS
+         </span>
+</span>
+</button>
+<button aria-pressed="false" class="nav-card" data-card-title="UCA Periodismo y Comunicación Digital" data-hero-card="" data-target="#proyecto-uca" type="button">
+<span class="nav-card__number">
+         04
+        </span>
+<span class="nav-card__media">
+<img alt="Portada de UCA Periodismo y Comunicación Digital" decoding="async" height="1125" src="paginawebfotos/pduca.jpg" width="900"/>
+</span>
+<span class="nav-card__content">
+<span class="nav-card__title nav-card__title--long">
+          <span>UCA Periodismo y</span>
+          <span>Comunicación Digital</span>
+         </span>
+</span>
+</button>
+<button aria-pressed="false" class="nav-card" data-card-title="Ronda de Mates" data-hero-card="" data-target="#proyecto-ronda-de-mates" type="button">
+<span class="nav-card__number">
+         05
+        </span>
+<span class="nav-card__media">
+<img alt="Portada de Ronda de Mates" decoding="async" height="1050" src="paginawebfotos/pdronda.jpg" width="1400"/>
+</span>
+<span class="nav-card__content">
+<span class="nav-card__title">
+          Ronda de Mates
+         </span>
+</span>
+</button>
+</div>
+</div>
+<button aria-label="Ver tarjeta siguiente" class="hero-deck__arrow hero-deck__arrow--next" data-hero-next="" type="button">
+<span aria-hidden="true">
+       →
+      </span>
+</button>
+<div class="hero-deck__controls container">
+<div aria-live="polite" class="hero-deck__counter">
+<span data-hero-current="">
+        01
+       </span>
+<span aria-hidden="true">
+        /
+       </span>
+<span>05</span>
+</div>
+<div class="hero-deck__selected">
+<span class="hero-deck__selected-label">
+        Seleccionado
+       </span>
+<strong data-hero-title="">
+        Sobre mí
+       </strong>
+</div>
+<a class="hero-deck__open" data-hero-open="" href="#perfil">
+       ABRIR SECCIÓN
+       <span aria-hidden="true">
+        ↘
+       </span>
+</a>
+</div>
+</div>
+</section>
+<section aria-labelledby="profile-title" class="profile section" data-section="" id="perfil">
 <div class="profile__container container">
 <div class="profile__image">
-<img alt="Fotografía de Josefina Harris" class="profile__photo" data-image-base="paginawebfotos/foto-josefina" decoding="async" height="1600" loading="lazy" src="paginawebfotos/foto-josefina.webp" width="1200"/>
+<img alt="Fotografía de Josefina Harris" class="profile__photo" data-image-base="paginawebfotos/foto-josefina" decoding="async" height="1600" loading="lazy" src="paginawebfotos/foto-josefina.jpg" width="1200"/>
 </div>
 <div class="profile__content">
-<p class="eyebrow">Sobre mí</p>
-<h2 class="profile__title" id="profile-title">Una mirada en constante evolución.</h2>
-<div class="profile__text">
-<p class="profile__manifesto">Soy estudiante de cuarto año de la Licenciatura en Comunicación Digital e Interactiva en la Universidad Católica Argentina, con graduación prevista para diciembre de 2026.</p>
-<p>Mi formación académica se complementa con la participación en proyectos que me permiten incorporar conocimientos y herramientas prácticas vinculadas con la creación de contenido, la comunicación institucional y la edición audiovisual. En cada experiencia, el primer paso es comprender el contexto, identificar a quién se dirige la información y organizarla en función de una necesidad concreta.</p>
-<p>Puedo trabajar de manera autónoma, administrar tareas y plazos, y también integrarme a equipos en los que la coordinación y el intercambio forman parte del proceso. Antes de definir una propuesta, investigo, analizo referencias y pruebo distintas alternativas. Me interesa comprender por qué una pieza funciona, cómo puede adaptarse a cada público y qué decisiones ayudan a comunicar con mayor claridad.</p>
-<p>Busco seguir desarrollándome en proyectos que me permitan asumir nuevas responsabilidades, fortalecer mis capacidades y ampliar mis herramientas profesionales.</p>
+<p class="eyebrow">
+       Sobre mí
+      </p>
+<h2 class="profile__title" id="profile-title">aprender. empatizar. Comunicar.</h2>
+<div class="profile__text"><p class="profile__manifesto">Soy estudiante de Comunicación Digital e Interactiva en la Universidad Católica Argentina, con graduación prevista para diciembre de 2026.</p><p>Me interesa crear contenido que no solo se vea bien, sino que también tenga una idea y un propósito detrás. Para mí, una buena identidad visual necesita estar acompañada por una estrategia, un objetivo y, sobre todo, por una forma de conectar con las personas.</p><p>Disfruto investigar, pensar ideas y encontrar la mejor manera de comunicarlas a través del diseño, el contenido y la edición audiovisual. Porque al final, no se trata solo de tener algo para decir, sino de lograr que del otro lado alguien quiera escucharlo.</p></div>
 </div>
 </div>
-</div>
-</section><section aria-labelledby="projects-title" class="projects section" data-section="" id="proyectos">
+</section>
+<section aria-labelledby="case-studies-title" class="case-studies section" data-section="" id="trabajo">
 <div class="container">
-<header class="section-heading">
-<p class="eyebrow">Trabajo seleccionado</p>
-<h2 class="section-heading__title" id="projects-title">
-                        Proyectos destacados
-                    </h2>
-<p class="section-heading__description">De las palabras a la acción: proyectos en los que las ideas toman forma a través de la planificación, la estrategia y la producción audiovisual en contextos reales</p>
+<div class="work-intro">
+<header class="work-intro__heading">
+<p class="eyebrow">
+       Trabajo seleccionado
+      </p>
+<h2 class="work-intro__title" id="case-studies-title">
+       El trabajo detrás de cada proyecto
+      </h2>
 </header>
-<!-- Filtros -->
-<!-- Grilla de proyectos -->
-<div class="projects-grid" data-project-grid="">
-<!-- JOO.BJRS -->
-<!-- Gimnasia Formativas -->
-<!-- UCA -->
-<!-- Ronda de Mates -->
-<article class="project-card" data-category="contenido community-management comunicacion-deportiva diseno-grafico" data-project-card="">
-<a aria-label="Ver proyecto Gimnasia Formativas" class="project-card__link" href="#proyecto-gimnasia">
-<div class="project-card__media"><img alt="Portada del proyecto Gimnasia Formativas" class="project-image" data-image-base="paginawebfotos/pdgimnasia" decoding="async" height="1125" loading="lazy" src="paginawebfotos/pdgimnasia.webp" width="900"/></div>
-<div class="project-card__content">
-<div class="project-card__header">
-<p class="project-card__category">Comunicación institucional deportiva</p>
-<span aria-hidden="true" class="project-card__arrow">
-                                        ↗
-                                    </span>
+<div class="work-intro__copy">
+<p>Crear también es volver un poco a ser niños: observar, preguntar, imaginar y animarse a probar sin saber exactamente cuál va a ser el resultado. Es encontrar algo verdadero y transformarlo en una idea.</p>
+<p>Detrás de cada proyecto intento volver a esa curiosidad, pero sin perder de vista de dónde nace la idea, a quién busca representar y qué quiere hacer sentir. Porque muchas veces las mejores historias están en lo más cercano: en nuestras raíces, en lo que compartimos y en aquello con lo que alguien puede sentirse identificado.</p>
 </div>
-<h3 class="project-card__title">
-                                    Gimnasia Formativas
-                                </h3>
-<p class="project-card__role">Gestión de contenidos</p>
-<p class="project-card__description">Comunicación de las categorías formativas del Club Gimnasia y Esgrima de Comodoro Rivadavia, con contenidos claros, cercanos y coherentes con su identidad institucional.</p>
+<figure class="work-intro__media">
+<img src="paginawebfotos/fotodepeque.png" alt="Josefina de niña tomando mate" width="1200" height="1600" loading="lazy" decoding="async"/>
+</figure>
 </div>
-</a>
-</article><article class="project-card" data-category="contenido edicion-audiovisual comunicacion-deportiva diseno-grafico community-management" data-project-card="">
-<a aria-label="Ver proyecto JOO.BJRS" class="project-card__link" href="#proyecto-joo-bjrs">
-<div class="project-card__media"><img alt="Portada del proyecto JOO.BJRS" class="project-image" data-image-base="paginawebfotos/pdjoo" decoding="async" height="1125" loading="lazy" src="paginawebfotos/pdjoo.webp" width="900"/></div>
-<div class="project-card__content">
-<div class="project-card__header">
-<p class="project-card__category">Contenido deportivo para redes</p>
-<span aria-hidden="true" class="project-card__arrow">
-                                        ↗
-                                    </span>
-</div>
-<h3 class="project-card__title">
-                                    JOO.BJRS
-                                </h3>
-<p class="project-card__role">Dirección y producción integral</p>
-<p class="project-card__description">Una cuenta hecha por y para el hincha de Boca, donde la actualidad, la narrativa audiovisual y el diseño se convierten en contenidos pensados para generar identificación e interacción.</p>
-<div class="project-card__result">
-<span>2,3 M de visualizaciones en el último mes</span>
-<small>TikTok · julio de 2026</small>
-</div>
-</div>
-</a>
-</article><article class="project-card" data-category="contenido community-management diseno-grafico" data-project-card="">
-<a aria-label="Ver proyecto UCA Periodismo y Comunicación Digital" class="project-card__link" href="#proyecto-uca">
-<div class="project-card__media"><img alt="Portada del proyecto UCA Periodismo y Comunicación Digital" class="project-image" data-image-base="paginawebfotos/pduca" decoding="async" height="1125" loading="lazy" src="paginawebfotos/pduca.webp" width="900"/></div>
-<div class="project-card__content">
-<div class="project-card__header">
-<p class="project-card__category">Comunicación universitaria</p>
-<span aria-hidden="true" class="project-card__arrow">
-                                        ↗
-                                    </span>
-</div>
-<h3 class="project-card__title project-card__title--long">
-                                    UCA Periodismo y Comunicación Digital
-                                </h3>
-<p class="project-card__role">Planificación y gestión en equipo</p>
-<p class="project-card__description">Planificación y creación de contenidos institucionales y cercanos para las carreras de Comunicación Periodística y Comunicación Digital de la Universidad Católica Argentina.</p>
-</div>
-</a>
-</article><article class="project-card" data-category="contenido edicion-audiovisual" data-project-card="">
-<a aria-label="Ver proyecto Ronda de Mates" class="project-card__link" href="#proyecto-ronda-de-mates">
-<div class="project-card__media"><img alt="Portada del proyecto Ronda de Mates" class="project-image" data-image-base="paginawebfotos/pdronda" decoding="async" height="1050" loading="lazy" src="paginawebfotos/pdronda.webp" width="1400"/></div>
-<div class="project-card__content">
-<div class="project-card__header">
-<p class="project-card__category">Streaming en vivo</p>
-<span aria-hidden="true" class="project-card__arrow">
-                                        ↗
-                                    </span>
-</div>
-<h3 class="project-card__title">
-                                    Ronda de Mates
-                                </h3>
-<p class="project-card__role">Coordinación, imagen y sonido</p>
-<p class="project-card__description">Producción de un programa universitario en vivo, con foco en la coordinación del equipo, la operación técnica y la resolución de imprevistos en tiempo real.</p>
-</div>
-</a>
-</article></div>
-</div>
-</section><section aria-labelledby="case-studies-title" class="case-studies section section--deep">
-<div class="container">
-<header class="section-heading section-heading--compact">
-<p class="eyebrow">Proyectos en detalle</p>
-<h2 class="section-heading__title" id="case-studies-title">El trabajo detrás de cada proyecto</h2>
-</header>
-<!-- =========================================
-                     CASO: JOO.BJRS
-                ========================================== -->
-<!-- =========================================
-                     CASO: GIMNASIA FORMATIVAS
-                ========================================== -->
-<!-- =========================================
-                     CASO: UCA
-                ========================================== -->
-<!-- =========================================
-                     CASO: RONDA DE MATES
-                ========================================== -->
-<article aria-labelledby="gimnasia-title" class="case-study" id="proyecto-gimnasia" style="--case-cover: url('paginawebfotos/pdgimnasia.webp');">
+<article aria-labelledby="gimnasia-title" class="case-study" data-work-type="EXPERIENCIA" id="proyecto-gimnasia" style="--case-cover: url('paginawebfotos/pdgimnasia.jpg');">
 <header class="case-study__header case-study__header--cover">
 <div class="case-study__identity">
-<div class="case-study__logo-frame"><img alt="Logo de Gimnasia Formativas" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logogimnasia.webp" width="700"/></div>
-<p class="eyebrow">Comunicación deportiva</p>
+<div class="case-study__logo-frame">
+<img alt="Logo de Gimnasia Formativas" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logogimnasia.png" width="700"/>
+</div>
+<p class="eyebrow">
+         Comunicación deportiva
+        </p>
 <h3 class="case-study__title" id="gimnasia-title">
-                                Gimnasia Formativas
-                            </h3>
+         Gimnasia Formativas
+        </h3>
 </div>
 <div class="case-study__summary">
-<p>Desde marzo de 2025 estoy a cargo de la comunicación de las categorías formativas del Club Gimnasia y Esgrima de Comodoro Rivadavia, integradas por jugadores y jugadoras de entre 5 y 21 años. Mi función incluye organizar y verificar la información de cada categoría, planificar los contenidos y mantener una comunicación institucional clara, ordenada y cercana para las familias y la comunidad del básquet.</p>
-<dl class="project-details"><div class="project-details__item"><dt>Enfoque</dt><dd>Comunicación institucional deportiva</dd></div><div class="project-details__item"><dt>Responsabilidad</dt><dd>Gestión y organización de contenidos</dd></div><div class="project-details__item"><dt>Cuenta</dt><dd>@gimnasiaformativas</dd></div><div class="project-details__item"><dt>Desde</dt><dd>Marzo de 2025</dd></div></dl>
+<p>Entre marzo de 2025 y agosto de 2026 estuve a cargo de la comunicación de las categorías formativas del Club Gimnasia y Esgrima de Comodoro Rivadavia, integradas por jugadores y jugadoras de entre 5 y 21 años. Mi trabajo consistió en organizar y verificar la información de cada categoría, planificar los contenidos y sostener una comunicación institucional clara, ordenada y cercana para las familias y la comunidad del básquet.</p>
+<dl class="project-details">
+<div class="project-details__item">
+<dt>
+           Enfoque
+          </dt>
+<dd>
+           Comunicación institucional deportiva
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Responsabilidad
+          </dt>
+<dd>
+           Gestión y organización de contenidos
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Cuenta
+          </dt>
+<dd>
+           @gimnasiaformativas
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>Período</dt>
+<dd>Marzo de 2025 — agosto de 2026</dd>
+</div>
+</dl>
 </div>
 </header>
 <div class="project-gallery project-gallery--mixed project-gallery--uniform">
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Fixture de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformfixture" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeformfixture.webp" width="1080"/></div>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Fixture de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformfixture" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeformfixture.jpg" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Resultado de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformresultado" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeformresultado.webp" width="1080"/></div>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Resultado de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformresultado" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeformresultado.jpg" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Invitación a un partido de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformpartido" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeformpartido.webp" width="1080"/></div>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Invitación a un partido de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformpartido" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeformpartido.jpg" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Actividad institucional de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeforminstitucion" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeforminstitucion.webp" width="1080"/></div>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Actividad institucional de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeforminstitucion" decoding="async" height="1350" loading="lazy" src="paginawebfotos/gyeforminstitucion.jpg" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Historia informativa de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformhistoria" decoding="async" height="1920" loading="lazy" src="paginawebfotos/gyeformhistoria.webp" width="1080"/></div>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Historia informativa de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformhistoria" decoding="async" height="1920" loading="lazy" src="paginawebfotos/gyeformhistoria.png" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Publicación con fotografías de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformfoto" decoding="async" height="1064" loading="lazy" src="paginawebfotos/gyeformfoto.webp" width="1600"/></div>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Publicación con fotografías de Gimnasia Formativas" class="project-gallery__image" data-image-base="paginawebfotos/gyeformfoto" decoding="async" height="1064" loading="lazy" src="paginawebfotos/gyeformfoto.jpg" width="1600"/>
+</div>
 </figure>
 </div>
-<div class="case-study__information"><section class="case-study__text-block"><p class="eyebrow">Contexto</p><h4>Comunicación cotidiana</h4><p>El trabajo semanal incluye la recepción de información, fotografías y videos aportados por delegados, entrenadores, familias y dirigentes. A partir de esos materiales, cada actividad toma forma en fixtures, resultados, historias y publicaciones alineadas con la identidad institucional del club.</p></section><section class="case-study__text-block"><p class="eyebrow">Desafío</p><h4>Trabajo completamente remoto</h4><p>Todo el trabajo se realiza a distancia, lo que exige adaptarme al material que recibo, reconocer qué recursos pueden utilizarse y encontrar la mejor manera de presentar cada actividad, incluso cuando las fotografías, los videos o la información llegan desde distintas fuentes y con características diferentes.</p></section><section class="case-study__text-block"><p class="eyebrow">Participación</p><h4>Responsabilidades</h4><p>La tarea requiere verificar fechas, horarios, nombres, resultados y fotografías antes de cada publicación. La coordinación con distintas personas, la incorporación de correcciones y el cuidado del tono forman parte del proceso, especialmente porque gran parte de quienes aparecen en los contenidos son niños y adolescentes.</p></section><section class="case-study__text-block"><p class="eyebrow">Continuidad</p><h4>Identidad y variedad</h4><p>La cuenta acompaña partidos, torneos, reconocimientos, actividades especiales y distintos momentos de la vida diaria de las categorías. Aunque los contenidos y formatos cambian, cada publicación mantiene una misma identidad visual y un tono institucional, cercano y respetuoso.</p></section></div>
-</article><article aria-labelledby="joo-title" class="case-study" id="proyecto-joo-bjrs" style="--case-cover: url('paginawebfotos/portadajoo.webp');">
+<div class="case-study__information">
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Contexto
+        </p>
+<h4>
+         Comunicación cotidiana
+        </h4>
+<p>El trabajo semanal incluía la recepción de información, fotografías y videos aportados por delegados, entrenadores, familias y dirigentes. A partir de esos materiales, cada actividad tomaba forma en fixtures, resultados, historias y publicaciones alineadas con la identidad institucional del club.</p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Desafío
+        </p>
+<h4>
+         Trabajo completamente remoto
+        </h4>
+<p>Todo el trabajo se realizaba a distancia, lo que exigía adaptarme al material recibido, reconocer qué recursos podían utilizarse y encontrar la mejor manera de presentar cada actividad, incluso cuando las fotografías, los videos o la información llegaban desde distintas fuentes.</p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Participación
+        </p>
+<h4>
+         Responsabilidades
+        </h4>
+<p>La tarea requería verificar fechas, horarios, nombres, resultados y fotografías antes de cada publicación. La coordinación con distintas personas, la incorporación de correcciones y el cuidado del tono formaban parte del proceso, especialmente porque gran parte de quienes aparecían en los contenidos eran niños y adolescentes.</p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Continuidad
+        </p>
+<h4>
+         Identidad y variedad
+        </h4>
+<p>La cuenta acompañaba partidos, torneos, reconocimientos, actividades especiales y distintos momentos de la vida diaria de las categorías. Aunque los contenidos y formatos cambiaban, cada publicación mantenía una misma identidad visual y un tono institucional, cercano y respetuoso.</p>
+</section>
+</div>
+</article>
+<article aria-labelledby="joo-title" class="case-study" data-work-type="PROYECTO PERSONAL" id="proyecto-joo-bjrs" style="--case-cover: url('paginawebfotos/portadajoo.jpg');">
 <header class="case-study__header case-study__header--cover">
 <div class="case-study__identity">
-<div class="case-study__logo-frame"><img alt="Logo de JOO.BJRS" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logojoobjrs.webp" width="700"/></div>
-<p class="eyebrow">Contenido digital y comunicación deportiva</p>
+<div class="case-study__logo-frame">
+<img alt="Logo de JOO.BJRS" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logojoobjrs.png" width="700"/>
+</div>
+<p class="eyebrow">
+         Contenido digital y comunicación deportiva
+        </p>
 <h3 class="case-study__title" id="joo-title">
-                                JOO.BJRS
-                            </h3>
+         JOO.BJRS
+        </h3>
 </div>
 <div class="case-study__summary">
-<p>JOO.BJRS nació en agosto de 2025 como una cuenta creada por y para el hincha de Boca. El proyecto funciona como un espacio propio de producción de contenido deportivo, donde la actualidad, la narrativa audiovisual y el diseño se combinan para desarrollar publicaciones con identidad y generar interacción con la comunidad.</p>
-<dl class="project-details"><div class="project-details__item"><dt>Experiencia</dt><dd>Contenido deportivo para redes</dd></div><div class="project-details__item"><dt>Responsabilidad</dt><dd>Dirección y producción integral</dd></div><div class="project-details__item"><dt>Canales</dt><dd>TikTok e Instagram</dd></div><div class="project-details__item"><dt>Desde</dt><dd>Agosto de 2025</dd></div></dl>
+<p>JOO.BJRS nació en agosto de 2025 como un proyecto creado por y para el hincha de Boca. Lo gestiono de forma integral y desarrollo contenido para distintas plataformas combinando actualidad, edición audiovisual, diseño y narrativa. El objetivo es crear piezas compartibles que empaticen con la comunidad y representen lo que vive el hincha.</p>
+<dl class="project-details">
+<div class="project-details__item">
+<dt>
+           Experiencia
+          </dt>
+<dd>
+           Contenido deportivo para redes
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Responsabilidad
+          </dt>
+<dd>
+           Dirección y producción integral
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Canales
+          </dt>
+<dd>TikTok, Instagram y X</dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Desde
+          </dt>
+<dd>
+           Agosto de 2025
+          </dd>
+</div>
+</dl>
 </div>
 </header>
-<a aria-label="Visitar el perfil de Instagram de JOO.BJRS" class="case-study__cover case-study__cover--link" href="https://www.instagram.com/joo.bjrs?igsh=MTF5ZXBuaGg0YXc0cg%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" target="_blank"><img alt="Portada general de JOO.BJRS" class="case-study__cover-image" data-image-base="paginawebfotos/portadajoo" decoding="async" height="900" loading="lazy" src="paginawebfotos/portadajoo.webp" width="1600"/></a>
-<div class="case-study__information"><section class="case-study__text-block"><p class="eyebrow">Origen</p><h4>Una identidad con historia</h4><p>El nombre sintetiza el origen personal del proyecto. “Jo” surge del apodo con el que me llama mi familia, que también me transmitió la pasión por el Club Atlético Boca Juniors. “BJRS” incorpora una referencia directa al club sin recurrir a sus siglas tradicionales. La combinación construye una identidad propia, vinculada tanto con mi historia como con el universo que inspira cada contenido.</p></section><section class="case-study__text-block"><p class="eyebrow">Contenido</p><h4>Una propuesta para cada plataforma</h4><p>En TikTok, la propuesta se centra en piezas breves vinculadas con la actualidad, las tendencias, el humor y las emociones del hincha. La selección de los momentos, el ritmo de la edición y la oportunidad de publicación son parte fundamental de cada video. En Instagram, la estrategia se amplía con estadísticas, fixtures, contenidos informativos e imágenes intervenidas, dentro de una identidad visual coherente y reconocible.</p></section><section class="case-study__text-block"><p class="eyebrow">Participación</p><h4>Mi trabajo en el proyecto</h4><p>La producción abarca todas las etapas del contenido: investigación de temas y tendencias, búsqueda y selección de material, construcción de la narrativa, edición audiovisual, diseño de las publicaciones y redacción de los textos. El análisis posterior permite identificar qué formatos, enfoques y decisiones generan una mejor respuesta en la comunidad.</p></section><section class="case-study__text-block"><p class="eyebrow">Proceso</p><h4>De la oportunidad a la publicación</h4><p>Cada contenido parte de una oportunidad concreta: una jugada, una reacción, una tendencia o una conversación que está ocurriendo en ese momento. A partir de ahí, busco una relación con el universo de Boca y construyo la pieza según la emoción o la idea que quiero transmitir. El objetivo no es solamente publicar rápido, sino encontrar el enfoque que vuelva relevante ese momento para la comunidad.</p></section></div>
+<a aria-label="Visitar el perfil de Instagram de JOO.BJRS" class="case-study__cover case-study__cover--link" href="https://www.instagram.com/joo.bjrs?igsh=MTF5ZXBuaGg0YXc0cg%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">
+<img alt="Portada general de JOO.BJRS" class="case-study__cover-image" data-image-base="paginawebfotos/portadajoo" decoding="async" height="900" loading="lazy" src="paginawebfotos/portadajoo.jpg" width="1600"/>
+</a>
+<div class="case-study__information">
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Origen
+        </p>
+<h4>
+         Una identidad con historia
+        </h4>
+<p>
+         El nombre sintetiza el origen personal del proyecto. “Jo” surge del apodo con el que me llama mi familia, que también me transmitió la pasión por el Club Atlético Boca Juniors. “BJRS” incorpora una referencia directa al club sin recurrir a sus siglas tradicionales. La combinación construye una identidad propia, vinculada tanto con mi historia como con el universo que inspira cada contenido.
+        </p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Contenido
+        </p>
+<h4>
+         Una propuesta para cada plataforma
+        </h4>
+<p>Cada plataforma tiene su propio lenguaje, pero todas comparten una misma búsqueda: hacer contenido que el hincha quiera compartir porque se siente identificado. Trabajo con actualidad, tendencias, humor, emoción, estadísticas y piezas informativas, adaptando el formato sin perder una identidad reconocible.</p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Participación
+        </p>
+<h4>
+         Mi trabajo en el proyecto
+        </h4>
+<p>Me encargo de todo el proceso: investigación de temas y tendencias, búsqueda y selección de material, conceptualización, edición audiovisual, diseño, redacción, publicación y análisis de resultados. Esa mirada integral me permite ajustar rápidamente el contenido según la respuesta de la comunidad.</p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Proceso
+        </p>
+<h4>
+         De la oportunidad a la publicación
+        </h4>
+<p>Cada pieza parte de lo que el hincha está viviendo en ese momento. Busco detectar una emoción, conversación o situación compartida y transformarla en una idea que se sienta propia de la comunidad. La oportunidad importa, pero también el enfoque: publicar no alcanza si el contenido no representa a quien está del otro lado.</p>
+</section>
+</div>
 <section aria-labelledby="joo-pieces-title" class="case-study__pieces">
 <div class="case-study__section-heading">
-<p class="eyebrow">Selección de piezas</p>
+<p class="eyebrow">
+         Selección de piezas
+        </p>
 <h4 id="joo-pieces-title">
-                                Contenidos destacados
-                            </h4>
+         Contenidos destacados
+        </h4>
 </div>
 <div class="project-gallery project-gallery--uniform">
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Figuritas del Mundial" class="project-gallery__image" data-image-base="paginawebfotos/joofigurita" decoding="async" height="1350" loading="lazy" src="paginawebfotos/joofigurita.webp" width="1080"/></div>
-<figcaption>Una serie de figuritas coleccionables de jugadores de Boca en el contexto del Mundial, creada con inteligencia artificial. La propuesta alcanzó más de 29.000 Me gusta, 100 comentarios y 1.800 compartidos, y despertó el interés de muchas personas que solicitaron versiones impresas.</figcaption>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Figuritas del Mundial" class="project-gallery__image" data-image-base="paginawebfotos/joofigurita" decoding="async" height="1350" loading="lazy" src="paginawebfotos/joofigurita.jpg" width="1080"/>
+</div>
+<figcaption>
+          Una serie de figuritas coleccionables de jugadores de Boca en el contexto del Mundial, creada con inteligencia artificial. La propuesta alcanzó más de 29.000 Me gusta, 100 comentarios y 1.800 compartidos, y despertó el interés de muchas personas que solicitaron versiones impresas.
+         </figcaption>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Todos están viviendo nuestro 2023" class="project-gallery__image" data-image-base="paginawebfotos/jootriston" data-no-lightbox="" decoding="async" height="1435" loading="lazy" src="paginawebfotos/jootriston.webp" width="1080"/></div>
-<figcaption>Una pieza que vinculó emocionalmente una final perdida por la Selección Argentina en la Copa del Mundo con la experiencia de los hinchas de Boca en la Copa Libertadores 2023. La publicación alcanzó más de 650.000 reproducciones y 150.000 Me gusta gracias a la elección del momento y a la identificación de la audiencia.</figcaption>
-<a class="button button--secondary project-gallery__external-link" href="https://vt.tiktok.com/ZS4PTo6D8/" rel="noopener noreferrer" target="_blank">Ver video <span aria-hidden="true">↗</span></a>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Todos están viviendo nuestro 2023" class="project-gallery__image" data-image-base="paginawebfotos/jootriston" data-no-lightbox="" decoding="async" height="1435" loading="lazy" src="paginawebfotos/jootriston.jpg" width="1080"/>
+</div>
+<figcaption>
+          Una pieza que vinculó emocionalmente una final perdida por la Selección Argentina en la Copa del Mundo con la experiencia de los hinchas de Boca en la Copa Libertadores 2023. La publicación alcanzó más de 650.000 reproducciones y 150.000 Me gusta gracias a la elección del momento y a la identificación de la audiencia.
+         </figcaption>
+<a class="button button--secondary project-gallery__external-link" href="https://vt.tiktok.com/ZS4PTo6D8/" rel="noopener noreferrer" target="_blank">
+          Ver video
+          <span aria-hidden="true">
+           ↗
+          </span>
+</a>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Se renueva la ilusión con la Copa Libertadores" class="project-gallery__image" data-image-base="paginawebfotos/jooilusion" data-no-lightbox="" decoding="async" height="1071" loading="lazy" src="paginawebfotos/jooilusion.webp" width="1080"/></div>
-<figcaption>La pieza combinó imágenes y declaraciones de jugadores de Boca con la canción “Stayin’ Alive”, de Bee Gees, una elección musical poco habitual dentro del contenido deportivo del club. La edición alcanzó más de 200.000 reproducciones y 20.000 Me gusta.</figcaption>
-<a class="button button--secondary project-gallery__external-link" href="https://www.instagram.com/reel/DW0ABfMEZT1/?igsh=ODVlNnU3Zzk3aGYw" rel="noopener noreferrer" target="_blank">Ver video <span aria-hidden="true">↗</span></a>
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Se renueva la ilusión con la Copa Libertadores" class="project-gallery__image" data-image-base="paginawebfotos/jooilusion" data-no-lightbox="" decoding="async" height="1071" loading="lazy" src="paginawebfotos/jooilusion.jpg" width="1080"/>
+</div>
+<figcaption>
+          La pieza combinó imágenes y declaraciones de jugadores de Boca con la canción “Stayin’ Alive”, de Bee Gees, una elección musical poco habitual dentro del contenido deportivo del club. La edición alcanzó más de 200.000 reproducciones y 20.000 Me gusta.
+         </figcaption>
+<a class="button button--secondary project-gallery__external-link" href="https://www.instagram.com/reel/DW0ABfMEZT1/?igsh=ODVlNnU3Zzk3aGYw" rel="noopener noreferrer" target="_blank">
+          Ver video
+          <span aria-hidden="true">
+           ↗
+          </span>
+</a>
 </figure>
 </div>
 </section>
 <section aria-labelledby="joo-results-title" class="case-study__results">
 <div class="case-study__section-heading">
-<p class="eyebrow">Resultados</p>
-<h4 id="joo-results-title">
-                                Evidencia del proyecto
-                            </h4>
+<p class="eyebrow">
+         Resultados
+        </p>
+<h4 id="joo-results-title">El contenido también se mide</h4>
 </div>
-<div class="metrics-grid">
-<article class="metric-card">
-<p class="metric-card__value">
-                                     +28.500
-                                </p>
-<p class="metric-card__label">
-                                    Seguidores
-                                </p>
-<p class="metric-card__context">
-                                    TikTok · julio de 2026
-                                </p>
-</article>
-<article class="metric-card">
-<p class="metric-card__value">
-                                     +7000
-                                </p>
-<p class="metric-card__label">
-                                    Seguidores
-                                </p>
-<p class="metric-card__context">
-                                    Instagram · julio de 2026
-                                </p>
-</article>
-<article class="metric-card">
-<p class="metric-card__value">
-                                    +200
-                                </p>
-<p class="metric-card__label">
-                                    Publicaciones realizadas
-                                </p>
-<p class="metric-card__context">
-                                    TikTok e Instagram · desde agosto de 2025
-                                </p>
-</article>
-</div>
+<div class="metrics-grid"><article class="metric-card"><p class="metric-card__value">+50.000</p><p class="metric-card__label">Seguidores</p><p class="metric-card__context">Todas las plataformas · septiembre de 2026</p></article><article class="metric-card"><p class="metric-card__value">+300</p><p class="metric-card__label">Publicaciones realizadas</p><p class="metric-card__context">Proyecto JOO.BJRS</p></article><article class="metric-card"><p class="metric-card__value">+5 M</p><p class="metric-card__label">Visualizaciones</p><p class="metric-card__context">TikTok · septiembre de 2026</p></article><article class="metric-card"><p class="metric-card__value">+840 K</p><p class="metric-card__label">Me gusta</p><p class="metric-card__context">TikTok · septiembre de 2026</p></article><article class="metric-card"><p class="metric-card__value">+110 K</p><p class="metric-card__label">Compartidos</p><p class="metric-card__context">TikTok · septiembre de 2026</p></article></div>
 </section>
 <div class="case-study__links">
 <p>
-<a href="https://www.instagram.com/joo.bjrs" rel="noopener noreferrer" target="_blank">Instagram · @joo.bjrs<span class="sr-only"> Se abre en una pestaña nueva</span></a>
-<span aria-hidden="true"> · </span>
-<a href="https://www.tiktok.com/@joo.bjrs" rel="noopener noreferrer" target="_blank">TikTok · @joo.bjrs<span class="sr-only"> Se abre en una pestaña nueva</span></a>
+<a href="https://www.instagram.com/joo.bjrs" rel="noopener noreferrer" target="_blank">
+         Instagram · @joo.bjrs
+         <span class="sr-only">
+          Se abre en una pestaña nueva
+         </span>
+</a>
+<span aria-hidden="true">
+         ·
+        </span>
+<a href="https://www.tiktok.com/@joo.bjrs" rel="noopener noreferrer" target="_blank">
+         TikTok · @joo.bjrs
+         <span class="sr-only">
+          Se abre en una pestaña nueva
+         </span>
+</a>
 </p>
 </div>
-</article><article aria-labelledby="uca-title" class="case-study" id="proyecto-uca" style="--case-cover: url('paginawebfotos/pduca.webp');">
+</article>
+<article aria-labelledby="uca-title" class="case-study" data-work-type="EXPERIENCIA" id="proyecto-uca" style="--case-cover: url('paginawebfotos/pduca.jpg');">
 <header class="case-study__header case-study__header--cover">
 <div class="case-study__identity">
-<div class="case-study__logo-frame"><img alt="Logo de UCA Periodismo y Comunicación Digital" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logouca.webp" width="700"/></div>
-<p class="eyebrow">Comunicación institucional</p>
+<div class="case-study__logo-frame">
+<img alt="Logo de UCA Periodismo y Comunicación Digital" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logouca.png" width="700"/>
+</div>
+<p class="eyebrow">
+         Comunicación institucional
+        </p>
 <h3 class="case-study__title case-study__title--long" id="uca-title">
-                                UCA Periodismo y Comunicación Digital
-                            </h3>
+         UCA Periodismo y Comunicación Digital
+        </h3>
 </div>
 <div class="case-study__summary">
-<p>Integré un equipo de dos personas responsable de la planificación y gestión de las redes sociales de las licenciaturas en Comunicación Periodística y Comunicación Digital de la Universidad Católica Argentina.</p>
-<dl class="project-details"><div class="project-details__item"><dt>Experiencia</dt><dd>Práctica interna en comunicación digital</dd></div><div class="project-details__item"><dt>Responsabilidad</dt><dd>Planificación y gestión de contenidos</dd></div><div class="project-details__item"><dt>Cuentas</dt><dd>Comunicación Periodística y Comunicación Digital</dd></div><div class="project-details__item"><dt>Período</dt><dd>Marzo — diciembre de 2025</dd></div></dl>
+<p>
+         Integré un equipo de dos personas responsable de la planificación y gestión de las redes sociales de las licenciaturas en Comunicación Periodística y Comunicación Digital de la Universidad Católica Argentina.
+        </p>
+<dl class="project-details">
+<div class="project-details__item">
+<dt>
+           Experiencia
+          </dt>
+<dd>
+           Práctica interna en comunicación digital
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Responsabilidad
+          </dt>
+<dd>
+           Planificación y gestión de contenidos
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Cuentas
+          </dt>
+<dd>
+           Comunicación Periodística y Comunicación Digital
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Período
+          </dt>
+<dd>
+           Marzo — diciembre de 2025
+          </dd>
+</div>
+</dl>
 </div>
 </header>
 <div class="project-gallery project-gallery--uniform">
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Publicación informativa de UCA Periodismo y Comunicación Digital" class="project-gallery__image" data-image-base="paginawebfotos/ucainfo" decoding="async" height="1920" loading="lazy" src="paginawebfotos/ucainfo.webp" width="1080"/></div>
-
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Publicación informativa de UCA Periodismo y Comunicación Digital" class="project-gallery__image" data-image-base="paginawebfotos/ucainfo" decoding="async" height="1920" loading="lazy" src="paginawebfotos/ucainfo.jpg" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Cobertura de actividad de UCA Periodismo y Comunicación Digital" class="project-gallery__image" data-image-base="paginawebfotos/ucainstitucional" decoding="async" height="1350" loading="lazy" src="paginawebfotos/ucainstitucional.webp" width="1080"/></div>
-
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Cobertura de actividad de UCA Periodismo y Comunicación Digital" class="project-gallery__image" data-image-base="paginawebfotos/ucainstitucional" decoding="async" height="1350" loading="lazy" src="paginawebfotos/ucainstitucional.jpg" width="1080"/>
+</div>
 </figure>
 <figure class="project-gallery__item">
-<div class="project-gallery__media project-gallery__media--square"><img alt="Contenido cercano o de humor de UCA Periodismo y Comunicación Digital" class="project-gallery__image" data-image-base="paginawebfotos/ucahumor" decoding="async" height="1350" loading="lazy" src="paginawebfotos/ucahumor.webp" width="1080"/></div>
-
+<div class="project-gallery__media project-gallery__media--square">
+<img alt="Contenido cercano o de humor de UCA Periodismo y Comunicación Digital" class="project-gallery__image" data-image-base="paginawebfotos/ucahumor" decoding="async" height="1350" loading="lazy" src="paginawebfotos/ucahumor.jpg" width="1080"/>
+</div>
 </figure>
 </div>
-<div class="case-study__information"><section class="case-study__text-block"><p class="eyebrow">Contexto</p><h4>Las cuentas</h4><p>Las redes brindaban información sobre las carreras a estudiantes y posibles ingresantes, principalmente jóvenes de entre 18 y 25 años. La comunicación combinaba contenidos institucionales con publicaciones más cercanas vinculadas con la vida universitaria.</p></section><section class="case-study__text-block"><p class="eyebrow">Contenido</p><h4>Formatos desarrollados</h4><p>Planificamos calendarios de contenido y desarrollamos publicaciones sobre charlas, fechas y plazos importantes, efemérides, historias, coberturas de actividades y piezas de humor o cercanía adaptadas a cada carrera.</p></section><section class="case-study__text-block"><p class="eyebrow">Participación</p><h4>Trabajo en equipo</h4><p>Contábamos con autonomía para organizar el calendario, proponer ideas, diseñar, redactar, publicar y adaptar el tono según las necesidades de cada cuenta. La experiencia me permitió incorporar una mirada más planificada sobre la comunicación institucional y sostener el trabajo de manera colaborativa.</p></section></div>
-</article><article aria-labelledby="ronda-title" class="case-study" id="proyecto-ronda-de-mates" style="--case-cover: url('paginawebfotos/portadarondademates.webp');">
+<div class="case-study__information">
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Contexto
+        </p>
+<h4>
+         Las cuentas
+        </h4>
+<p>
+         Las redes brindaban información sobre las carreras a estudiantes y posibles ingresantes, principalmente jóvenes de entre 18 y 25 años. La comunicación combinaba contenidos institucionales con publicaciones más cercanas vinculadas con la vida universitaria.
+        </p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Contenido
+        </p>
+<h4>
+         Formatos desarrollados
+        </h4>
+<p>
+         Planificamos calendarios de contenido y desarrollamos publicaciones sobre charlas, fechas y plazos importantes, efemérides, historias, coberturas de actividades y piezas de humor o cercanía adaptadas a cada carrera.
+        </p>
+</section>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Participación
+        </p>
+<h4>
+         Trabajo en equipo
+        </h4>
+<p>
+         Contábamos con autonomía para organizar el calendario, proponer ideas, diseñar, redactar, publicar y adaptar el tono según las necesidades de cada cuenta. La experiencia me permitió incorporar una mirada más planificada sobre la comunicación institucional y sostener el trabajo de manera colaborativa.
+        </p>
+</section>
+</div>
+</article>
+<article aria-labelledby="ronda-title" class="case-study" data-work-type="PROYECTO UNIVERSITARIO" id="proyecto-ronda-de-mates" style="--case-cover: url('paginawebfotos/portadarondademates.jpg');">
 <header class="case-study__header case-study__header--cover">
 <div class="case-study__identity">
-<div class="case-study__logo-frame"><img alt="Logo de Ronda de Mates" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logorondademates.webp" width="700"/></div>
-<p class="eyebrow">Producción audiovisual</p>
+<div class="case-study__logo-frame">
+<img alt="Logo de Ronda de Mates" class="case-study__logo" decoding="async" height="875" loading="lazy" src="paginawebfotos/logorondademates.png" width="700"/>
+</div>
+<p class="eyebrow">
+         Producción audiovisual
+        </p>
 <h3 class="case-study__title" id="ronda-title">
-                                Ronda de Mates
-                            </h3>
+         Ronda de Mates
+        </h3>
 </div>
 <div class="case-study__summary">
-<p>Entre agosto de 2024 y diciembre de 2025 participé en la coordinación y producción de Ronda de Mates, un programa de streaming universitario creado por estudiantes para la comunidad universitaria, con transmisión en vivo por YouTube.</p>
-<dl class="project-details"><div class="project-details__item"><dt>Experiencia</dt><dd>Producción de streaming en vivo</dd></div><div class="project-details__item"><dt>Responsabilidad</dt><dd>Coordinación, imagen y sonido</dd></div><div class="project-details__item"><dt>Equipo</dt><dd>Aproximadamente 10 estudiantes</dd></div><div class="project-details__item"><dt>Período</dt><dd>Agosto de 2024 — diciembre de 2025</dd></div></dl>
+<p>
+         Entre agosto de 2024 y diciembre de 2025 participé en la coordinación y producción de Ronda de Mates, un programa de streaming universitario creado por estudiantes para la comunidad universitaria, con transmisión en vivo por YouTube.
+        </p>
+<dl class="project-details">
+<div class="project-details__item">
+<dt>
+           Experiencia
+          </dt>
+<dd>
+           Producción de streaming en vivo
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Responsabilidad
+          </dt>
+<dd>
+           Coordinación, imagen y sonido
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Equipo
+          </dt>
+<dd>
+           Aproximadamente 10 estudiantes
+          </dd>
+</div>
+<div class="project-details__item">
+<dt>
+           Período
+          </dt>
+<dd>
+           Agosto de 2024 — diciembre de 2025
+          </dd>
+</div>
+</dl>
 </div>
 </header>
 <div class="ronda-gallery ronda-gallery--single">
 <figure class="ronda-gallery__cover">
-<div class="project-gallery__media project-gallery__media--wide"><img alt="Portada de Ronda de Mates" class="project-gallery__image" data-image-base="paginawebfotos/portadarondademates" decoding="async" height="900" loading="lazy" src="paginawebfotos/portadarondademates.webp" width="1600"/></div>
-
+<div class="project-gallery__media project-gallery__media--wide">
+<img alt="Portada de Ronda de Mates" class="project-gallery__image" data-image-base="paginawebfotos/portadarondademates" decoding="async" height="900" loading="lazy" src="paginawebfotos/portadarondademates.jpg" width="1600"/>
+</div>
 </figure>
 </div>
-<div class="case-study__information"><section class="case-study__text-block"><p class="eyebrow">Contexto</p><h4>El proyecto</h4><p>Ronda de Mates funciona como un espacio de práctica dentro de la universidad, orientado a la producción en vivo y a la coordinación de equipos. El programa reúne a aproximadamente diez estudiantes y continúa en actividad.</p></section><section class="case-study__text-block"><p class="eyebrow">Participación</p><h4>Mi experiencia</h4><p>En cada emisión estuve a cargo de la operación visual y la botonera de sonido. El rol exigía seguir el desarrollo del programa, coordinar con el equipo y resolver imprevistos en tiempo real sin interrumpir la transmisión. La experiencia fortaleció mi capacidad para tomar decisiones rápidas, trabajar bajo presión y comprender la dinámica técnica de una producción en vivo.</p></section></div>
-</article></div>
-</section><section aria-labelledby="capabilities-title" class="capabilities section" data-section="" id="capacidades">
-<div class="container">
-<header class="section-heading">
-<p class="eyebrow">Habilidades y herramientas</p>
-<h2 class="section-heading__title" id="capabilities-title">Lo que puedo aportar</h2>
-<p class="section-heading__description">Tres áreas que atraviesan mi trabajo y me permiten pensar, producir y adaptar contenidos para distintos públicos, plataformas y objetivos.</p>
-</header>
-<div class="capabilities-grid">
-<article class="capability-card">
-<p class="capability-card__number">01</p>
-<h3 class="capability-card__title">Edición y narrativa audiovisual</h3>
-<p class="capability-card__description">Creo piezas breves desde la búsqueda y selección del material hasta la edición final. Mi trabajo se concentra especialmente en el ritmo, la estructura y la relación entre imagen, texto y sonido para construir historias que mantengan la atención.</p>
-</article>
-<article class="capability-card">
-<p class="capability-card__number">02</p>
-<h3 class="capability-card__title">Community management</h3>
-<p class="capability-card__description">Organizo calendarios, diseño y publico contenidos, y adapto el tono a la identidad y las necesidades de cada cuenta. Puedo trabajar con una voz propia o integrarme a lineamientos institucionales ya definidos.</p>
-</article>
-<article class="capability-card">
-<p class="capability-card__number">03</p>
-<h3 class="capability-card__title">Diseño gráfico para redes</h3>
-<p class="capability-card__description">Desarrollo fixtures, estadísticas, historias, carruseles y publicaciones informativas. Puedo crear una propuesta desde cero o trabajar sobre una identidad existente para mantener claridad, coherencia y reconocimiento.</p>
-</article>
-</div>
-<div class="tools-panel">
-<div class="tools-panel__heading">
-<p class="eyebrow">Programas y recursos</p>
-<h3>Herramientas que forman parte de mi proceso</h3>
-</div>
-<div class="tools-grid">
-<section class="tool-group">
-<h4 class="tool-group__title">Edición audiovisual</h4>
-<ul class="tool-list"><li>CapCut</li><li>Premiere Pro</li><li>InShot</li></ul>
+<div class="case-study__information">
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Contexto
+        </p>
+<h4>
+         El proyecto
+        </h4>
+<p>
+         Ronda de Mates funciona como un espacio de práctica dentro de la universidad, orientado a la producción en vivo y a la coordinación de equipos. El programa reúne a aproximadamente diez estudiantes y continúa en actividad.
+        </p>
 </section>
-<section class="tool-group">
-<h4 class="tool-group__title">Diseño gráfico</h4>
-<ul class="tool-list"><li>Canva</li><li>Illustrator</li><li>Photoshop</li></ul>
-</section>
-<section class="tool-group">
-<h4 class="tool-group__title">Diseño digital</h4>
-<ul class="tool-list"><li>Figma</li><li>Adobe XD</li><li>WordPress</li></ul>
-</section>
-<section class="tool-group">
-<h4 class="tool-group__title">Organización</h4>
-<ul class="tool-list"><li>Trello</li></ul>
-</section>
-<section class="tool-group">
-<h4 class="tool-group__title">Inteligencia artificial</h4>
-<ul class="tool-list"><li>ChatGPT</li><li>Gemini</li><li>Nano Banana</li><li>Adobe Firefly</li></ul>
+<section class="case-study__text-block">
+<p class="eyebrow">
+         Participación
+        </p>
+<h4>
+         Mi experiencia
+        </h4>
+<p>
+         En cada emisión estuve a cargo de la operación visual y la botonera de sonido. El rol exigía seguir el desarrollo del programa, coordinar con el equipo y resolver imprevistos en tiempo real sin interrumpir la transmisión. La experiencia fortaleció mi capacidad para tomar decisiones rápidas, trabajar bajo presión y comprender la dinámica técnica de una producción en vivo.
+        </p>
 </section>
 </div>
-</div>
-</div>
-</section><section aria-labelledby="results-title" class="results section section--accent" id="resultados">
-<div class="container">
-<header class="section-heading section-heading--compact">
-<p class="eyebrow">Métricas y resultados</p>
-<h2 class="section-heading__title" id="results-title">
-                        El contenido también se mide
-                    </h2>
-<p class="section-heading__description">Algunos datos verificables que muestran el alcance de JOO.BJRS y la respuesta de la comunidad a contenidos pensados y publicados en el momento adecuado.</p>
-</header>
-<div class="results-grid">
-<article class="result-card">
-<p class="result-card__value">2,3 M</p>
-<h3 class="result-card__title">Visualizaciones en el último mes</h3>
-<p class="result-card__context">JOO.BJRS · TikTok · julio de 2026</p>
-</article>
-<article class="result-card">
-<p class="result-card__value">365 mil</p>
-<h3 class="result-card__title">Me gusta entre junio y julio</h3>
-<p class="result-card__context">JOO.BJRS · TikTok · junio–julio de 2026</p>
-</article>
-<article class="result-card">
-<p class="result-card__value">1,5 M</p>
-<h3 class="result-card__title">Reproducciones en un video</h3>
-<p class="result-card__context">Mayor alcance individual en TikTok · julio de 2026</p>
-</article>
-<article class="result-card">
-<p class="result-card__value">650 mil</p>
-<h3 class="result-card__title">Visitas al perfil en el último mes</h3>
-<p class="result-card__context">JOO.BJRS · Instagram · julio de 2026</p>
 </article>
 </div>
-</div>
-</section><section aria-labelledby="contact-title" class="contact section section--deep" data-section="" id="contacto">
+</section>
+<section aria-labelledby="contact-title" class="contact section" data-section="" id="contacto">
 <div class="contact__container container">
 <div class="contact__content">
-<p class="eyebrow">Contacto</p>
-<p class="contact__lead">Siempre estoy buscando nuevas ideas, aprendizajes y proyectos.</p><h2 class="contact__title" id="contact-title">HABLEMOS.</h2>
-<p class="contact__description">Me interesa sumarme a nuevas experiencias en las que pueda seguir aprendiendo y aportar desde la comunicación digital y la producción audiovisual, tanto en prácticas profesionales como en proyectos freelance o propuestas de medio tiempo. Estoy disponible para trabajar de manera remota y para proyectos presenciales en Buenos Aires.</p>
+<p class="eyebrow">
+       Contacto
+      </p>
+<p class="contact__lead">
+       Siempre estoy buscando nuevas ideas, aprendizajes y proyectos.
+      </p>
+<h2 class="contact__title" id="contact-title">
+       HABLEMOS.
+      </h2>
+<p class="contact__description">
+       Me interesa sumarme a nuevas experiencias en las que pueda seguir aprendiendo y aportar desde la comunicación digital y la producción audiovisual, tanto en prácticas profesionales como en proyectos freelance o propuestas de medio tiempo. Estoy disponible para trabajar de manera remota y para proyectos presenciales en Buenos Aires.
+      </p>
 <a class="button button--primary" href="mailto:josefina.harris.cdr@gmail.com">
-                        Contactarme
-                        <span aria-hidden="true">↗</span>
+       Contactarme
+       <span aria-hidden="true">
+        ↗
+       </span>
 </a>
 <address class="contact-details">
 <ul class="contact-details__list">
 <li class="contact-details__item">
-<span>Correo</span>
+<span>
+          Correo
+         </span>
 <a href="mailto:josefina.harris.cdr@gmail.com">
-                                    josefina.harris.cdr@gmail.com
-                                </a>
+          josefina.harris.cdr@gmail.com
+         </a>
 </li>
 <li class="contact-details__item">
-<span>Instagram</span>
+<span>
+          Instagram
+         </span>
 <a href="https://www.instagram.com/josefinaharriss/" rel="noopener noreferrer" target="_blank">
-                                    @josefinaharriss
-                                    <span class="sr-only">
-                                        Se abre en una pestaña nueva
-                                    </span>
+          @josefinaharriss
+          <span class="sr-only">
+           Se abre en una pestaña nueva
+          </span>
 </a>
 </li>
 <li class="contact-details__item">
-<span>LinkedIn</span>
+<span>
+          LinkedIn
+         </span>
 <a href="https://www.linkedin.com/in/josefina-harris-6623b8372" rel="noopener noreferrer" target="_blank">
-                                    Josefina Harris
-                                    <span class="sr-only">
-                                        Se abre en una pestaña nueva
-                                    </span>
+          Josefina Harris
+          <span class="sr-only">
+           Se abre en una pestaña nueva
+          </span>
 </a>
 </li>
 </ul>
@@ -542,98 +732,104 @@
 <form action="mailto:josefina.harris.cdr@gmail.com" class="contact-form" data-contact-form="" enctype="text/plain" method="post">
 <div class="form-field">
 <label for="contact-name">
-                            Nombre
-                        </label>
+        Nombre
+       </label>
 <input autocomplete="name" id="contact-name" name="nombre" required="" type="text"/>
 </div>
 <div class="form-field">
 <label for="contact-email">
-                            Correo
-                        </label>
+        Correo
+       </label>
 <input autocomplete="email" id="contact-email" name="correo" required="" type="email"/>
 </div>
 <div class="form-field">
 <label for="contact-subject">
-                            Asunto
-                        </label>
+        Asunto
+       </label>
 <input id="contact-subject" name="asunto" required="" type="text"/>
 </div>
 <div class="form-field">
 <label for="contact-message">
-                            Mensaje
-                        </label>
+        Mensaje
+       </label>
 <textarea id="contact-message" name="mensaje" required="" rows="7"></textarea>
 </div>
 <button class="button button--primary contact-form__submit" type="submit">
-                        Enviar mensaje
-                    </button>
+       Enviar mensaje
+      </button>
 <p class="contact-form__notice">
-                        Al enviar, se abrirá la aplicación de correo de tu dispositivo para que puedas revisar y completar el mensaje.
-                    </p>
-<p aria-live="polite" class="contact-form__status" data-form-status=""></p>
+       Al enviar, se abrirá la aplicación de correo de tu dispositivo para que puedas revisar y completar el mensaje.
+      </p>
+<p aria-live="polite" class="contact-form__status" data-form-status="">
+</p>
 </form>
 </div>
-</section></main>
-<!-- =====================================================
-         FOOTER
-    ====================================================== -->
+</section>
+</main>
 <footer class="site-footer">
 <div class="site-footer__container container">
 <div class="site-footer__brand">
-<a aria-label="Volver al inicio" class="brand" href="#inicio">
-<span>JH Josefina Harris</span>
+<a aria-label="Volver al inicio" href="#inicio">
+      JOSEFINA HARRIS
+      <span>
+       ©
+       <span data-current-year="">
+        2026
+       </span>
+</span>
 </a>
+<p class="site-footer__legal">Todos los derechos reservados.</p>
 </div>
 <nav aria-label="Navegación secundaria" class="footer-navigation">
 <ul class="footer-navigation__list">
 <li>
-<a href="#perfil">Sobre mí</a>
-</li><li>
-<a href="#proyectos">Proyectos</a>
-</li><li><a href="#capacidades">Habilidades</a></li><li>
-<a href="#contacto">Contacto</a>
-</li></ul>
+<a href="#perfil">
+        Sobre mí
+       </a>
+</li>
+<li>
+<a href="#trabajo">
+        Trabajo
+       </a>
+</li>
+<li>
+<a href="#contacto">
+        Contacto
+       </a>
+</li>
+</ul>
 </nav>
 <div class="site-footer__contact">
 <a href="mailto:josefina.harris.cdr@gmail.com">
-                    josefina.harris.cdr@gmail.com
-                </a>
+      josefina.harris.cdr@gmail.com
+     </a>
 <a href="https://www.instagram.com/josefinaharriss/" rel="noopener noreferrer" target="_blank">
-                    Instagram
-                    <span class="sr-only">
-                        Se abre en una pestaña nueva
-                    </span>
+      Instagram
+      <span aria-hidden="true">
+       ↗
+      </span>
 </a>
 <a href="https://www.linkedin.com/in/josefina-harris-6623b8372" rel="noopener noreferrer" target="_blank">
-                    LinkedIn
-                    <span class="sr-only">
-                        Se abre en una pestaña nueva
-                    </span>
+      LinkedIn
+      <span aria-hidden="true">
+       ↗
+      </span>
 </a>
 </div>
 </div>
-<div class="site-footer__bottom container">
-<p>
-                ©
-                <span data-current-year="">2026</span>
-                Josefina Harris.
-            </p>
-<p>
-                Todos los derechos reservados.
-            </p>
-</div>
 </footer>
-<!-- Mensaje para navegadores sin JavaScript -->
 <noscript>
 <div class="noscript-message">
-            La página puede navegarse sin JavaScript, pero el menú móvil, los
-            filtros y algunas interacciones estarán limitados.
-        </div>
+    La página puede navegarse sin JavaScript. La navegación visual del inicio queda disponible como una fila horizontal de tarjetas.
+   </div>
 </noscript>
 <div aria-hidden="true" class="image-lightbox" data-image-lightbox="" hidden="">
-<button aria-label="Cerrar imagen ampliada" class="image-lightbox__backdrop" data-lightbox-close="" type="button"></button>
+<button aria-label="Cerrar imagen ampliada" class="image-lightbox__backdrop" data-lightbox-close="" type="button">
+</button>
 <div aria-label="Vista completa de la imagen" aria-modal="true" class="image-lightbox__dialog" role="dialog">
-<button aria-label="Cerrar imagen ampliada" class="image-lightbox__close" data-lightbox-close="" type="button">×</button>
+<button aria-label="Cerrar imagen ampliada" class="image-lightbox__close" data-lightbox-close="" type="button">
+     ×
+    </button>
 <img alt="" class="image-lightbox__image" data-lightbox-image=""/>
 </div>
 </div>

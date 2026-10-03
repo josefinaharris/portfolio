@@ -2,650 +2,373 @@
 
 /* =========================================================
    PORTFOLIO DE JOSEFINA HARRIS
-   Archivo: script.js
+   Navegación editorial + interacciones del proyecto existente
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-    initializeCurrentYear();
-    initializeMediaAssets();
-    initializeHeader();
-    initializeMobileMenu();
-    initializeActiveNavigation();
-    initializeRevealAnimations();
-    initializeContactForm();
-    initializeImageLightbox();
+  initializeCurrentYear();
+  initializeMediaAssets();
+  initializeHeader();
+  initializeHeroCarousel();
+  initializeRevealAnimations();
+  initializeContactForm();
+  initializeImageLightbox();
 });
 
-
-
-
 /* =========================================================
-   MEDIOS: IMÁGENES CON EXTENSIONES ALTERNATIVAS Y VIDEO HERO
+   AÑO AUTOMÁTICO
 ========================================================= */
-
-function initializeMediaAssets() {
-    const supportedImageExtensions = ["png", "jpg", "jpeg", "JPG", "webp", "heic", "HEIC"];
-
-    document.querySelectorAll("img[data-image-base]").forEach((image) => {
-        const imageBase = image.dataset.imageBase;
-
-        if (!imageBase) {
-            return;
-        }
-
-        const currentSource = image.getAttribute("src") || "";
-        const currentExtension = currentSource.split(".").pop();
-        const orderedExtensions = [
-            currentExtension,
-            ...supportedImageExtensions
-        ].filter((extension, index, extensions) => {
-            return (
-                extension &&
-                supportedImageExtensions.includes(extension) &&
-                extensions.indexOf(extension) === index
-            );
-        });
-
-        let extensionIndex = 0;
-
-        image.addEventListener("error", () => {
-            extensionIndex += 1;
-
-            if (extensionIndex >= orderedExtensions.length) {
-                return;
-            }
-
-            image.src = `${imageBase}.${orderedExtensions[extensionIndex]}`;
-        });
-    });
-
-    const heroVideo = document.querySelector(".hero__video");
-
-    if (!heroVideo) {
-        return;
-    }
-
-    heroVideo.muted = true;
-    heroVideo.loop = true;
-    heroVideo.playsInline = true;
-
-    const startVideo = () => {
-        const playback = heroVideo.play();
-
-        if (playback instanceof Promise) {
-            playback.catch(() => {
-                /*
-                    Algunos navegadores pueden bloquear la reproducción
-                    automática hasta que exista una interacción del usuario.
-                */
-            });
-        }
-    };
-
-    if (heroVideo.readyState >= 2) {
-        startVideo();
-    } else {
-        heroVideo.addEventListener("canplay", startVideo, {
-            once: true
-        });
-    }
-}
-
-
-/* =========================================================
-   1. AÑO AUTOMÁTICO
-========================================================= */
-
 function initializeCurrentYear() {
-    const yearElements = document.querySelectorAll("[data-current-year]");
-    const currentYear = new Date().getFullYear();
-
-    yearElements.forEach((element) => {
-        element.textContent = currentYear;
-    });
+  const currentYear = new Date().getFullYear();
+  document.querySelectorAll("[data-current-year]").forEach((element) => {
+    element.textContent = currentYear;
+  });
 }
 
+/* =========================================================
+   MEDIOS: conserva el fallback del proyecto original
+========================================================= */
+function initializeMediaAssets() {
+  const supportedImageExtensions = ["webp", "png", "jpg", "jpeg", "JPG", "heic", "HEIC"];
+
+  document.querySelectorAll("img[data-image-base]").forEach((image) => {
+    const imageBase = image.dataset.imageBase;
+    if (!imageBase) return;
+
+    const currentSource = image.getAttribute("src") || "";
+    const currentExtension = currentSource.split(".").pop();
+    const orderedExtensions = [currentExtension, ...supportedImageExtensions].filter(
+      (extension, index, extensions) =>
+        extension &&
+        supportedImageExtensions.includes(extension) &&
+        extensions.indexOf(extension) === index
+    );
+
+    let extensionIndex = 0;
+    image.addEventListener("error", () => {
+      extensionIndex += 1;
+      if (extensionIndex < orderedExtensions.length) {
+        image.src = `${imageBase}.${orderedExtensions[extensionIndex]}`;
+      }
+    });
+  });
+}
 
 /* =========================================================
-   2. HEADER AL HACER SCROLL
+   HEADER
 ========================================================= */
-
 function initializeHeader() {
-    const header = document.querySelector("#site-header");
+  const header = document.querySelector("#site-header");
+  if (!header) return;
 
-    if (!header) {
-        return;
-    }
+  const updateHeader = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 20);
+  };
 
-    const updateHeader = () => {
-        const hasScrolled = window.scrollY > 24;
-
-        header.classList.toggle("is-scrolled", hasScrolled);
-    };
-
-    updateHeader();
-
-    window.addEventListener("scroll", updateHeader, {
-        passive: true
-    });
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
 }
 
-
 /* =========================================================
-   3. MENÚ MÓVIL ACCESIBLE
+   MENÚ VISUAL DE TARJETAS
+   Desktop: tarjetas superpuestas / rotativas
+   Mobile: carrusel horizontal con scroll-snap
 ========================================================= */
+function initializeHeroCarousel() {
+  const carousel = document.querySelector("[data-hero-carousel]");
+  const track = document.querySelector("[data-hero-track]");
+  const cards = Array.from(document.querySelectorAll("[data-hero-card]"));
+  const prevButton = document.querySelector("[data-hero-prev]");
+  const nextButton = document.querySelector("[data-hero-next]");
+  const currentLabel = document.querySelector("[data-hero-current]");
+  const titleLabel = document.querySelector("[data-hero-title]");
+  const openLink = document.querySelector("[data-hero-open]");
 
-function initializeMobileMenu() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector("#main-navigation");
+  if (!carousel || !track || cards.length === 0) return;
 
-    if (!menuToggle || !navigation) {
-        return;
-    }
+  const mobileQuery = window.matchMedia("(max-width: 900px)");
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let activeIndex = 0;
+  let pointerStartX = null;
+  let pointerStartY = null;
 
-    const mobileMediaQuery = window.matchMedia("(max-width: 900px)");
+  const getSignedDistance = (index) => {
+    let distance = (index - activeIndex + cards.length) % cards.length;
+    if (distance > cards.length / 2) distance -= cards.length;
+    return distance;
+  };
 
-    let isMenuOpen = false;
-    let previousFocusedElement = null;
-
-    const getFocusableElements = () => {
-        const navigationFocusableElements = navigation.querySelectorAll(
-            'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        );
-
-        return [
-            menuToggle,
-            ...navigationFocusableElements
-        ].filter((element) => {
-            return !element.hasAttribute("disabled");
-        });
-    };
-
-    const updateNavigationAccessibility = () => {
-        if (mobileMediaQuery.matches) {
-            navigation.setAttribute(
-                "aria-hidden",
-                String(!isMenuOpen)
-            );
-        } else {
-            navigation.setAttribute("aria-hidden", "false");
-        }
-    };
-
-    const openMenu = () => {
-        if (!mobileMediaQuery.matches) {
-            return;
-        }
-
-        isMenuOpen = true;
-        previousFocusedElement = document.activeElement;
-
-        menuToggle.setAttribute("aria-expanded", "true");
-        menuToggle.setAttribute(
-            "aria-label",
-            "Cerrar menú de navegación"
-        );
-
-        menuToggle.classList.add("is-active");
-
-        navigation.classList.add("is-open");
-        navigation.dataset.open = "true";
-        navigation.setAttribute("aria-hidden", "false");
-
-        document.body.classList.add("menu-open");
-
-        window.requestAnimationFrame(() => {
-            const firstNavigationLink = navigation.querySelector("a");
-
-            if (firstNavigationLink) {
-                firstNavigationLink.focus();
-            }
-        });
-    };
-
-    const closeMenu = (restoreFocus = true) => {
-        isMenuOpen = false;
-
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute(
-            "aria-label",
-            "Abrir menú de navegación"
-        );
-
-        menuToggle.classList.remove("is-active");
-
-        navigation.classList.remove("is-open");
-        navigation.dataset.open = "false";
-
-        document.body.classList.remove("menu-open");
-
-        updateNavigationAccessibility();
-
-        if (
-            restoreFocus &&
-            previousFocusedElement instanceof HTMLElement
-        ) {
-            previousFocusedElement.focus();
-        }
-    };
-
-    const toggleMenu = () => {
-        if (isMenuOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    };
-
-    const trapFocus = (event) => {
-        if (
-            !isMenuOpen ||
-            !mobileMediaQuery.matches ||
-            event.key !== "Tab"
-        ) {
-            return;
-        }
-
-        const focusableElements = getFocusableElements();
-
-        if (focusableElements.length === 0) {
-            return;
-        }
-
-        const firstElement = focusableElements[0];
-        const lastElement =
-            focusableElements[focusableElements.length - 1];
-
-        if (
-            event.shiftKey &&
-            document.activeElement === firstElement
-        ) {
-            event.preventDefault();
-            lastElement.focus();
-            return;
-        }
-
-        if (
-            !event.shiftKey &&
-            document.activeElement === lastElement
-        ) {
-            event.preventDefault();
-            firstElement.focus();
-        }
-    };
-
-    menuToggle.addEventListener("click", toggleMenu);
-
-    navigation.addEventListener("click", (event) => {
-        const clickedLink = event.target.closest("a");
-
-        if (!clickedLink) {
-            return;
-        }
-
-        if (mobileMediaQuery.matches) {
-            closeMenu(false);
-        }
-    });
-
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && isMenuOpen) {
-            closeMenu();
-            return;
-        }
-
-        trapFocus(event);
-    });
-
-    mobileMediaQuery.addEventListener("change", (event) => {
-        if (!event.matches && isMenuOpen) {
-            closeMenu(false);
-        }
-
-        updateNavigationAccessibility();
-    });
-
-    navigation.dataset.open = "false";
-    updateNavigationAccessibility();
-}
-
-
-/* =========================================================
-   4. INDICADOR DE SECCIÓN ACTIVA
-========================================================= */
-
-function initializeActiveNavigation() {
-    const navigationLinks = document.querySelectorAll(
-        "[data-navigation-link]"
+  const clearPositionClasses = (card) => {
+    card.classList.remove(
+      "is-active",
+      "is-prev-1", "is-prev-2", "is-prev-3",
+      "is-next-1", "is-next-2", "is-next-3",
+      "is-far"
     );
+  };
 
-    const sections = document.querySelectorAll(
-        "[data-section][id]"
-    );
+  const updateCards = ({ centerMobile = true } = {}) => {
+    cards.forEach((card, index) => {
+      clearPositionClasses(card);
+      const distance = getSignedDistance(index);
+      const isActive = index === activeIndex;
 
-    if (
-        navigationLinks.length === 0 ||
-        sections.length === 0
-    ) {
-        return;
-    }
+      card.setAttribute("aria-pressed", String(isActive));
 
-    const setActiveLink = (sectionId) => {
-        navigationLinks.forEach((link) => {
-            const linkTarget = link.getAttribute("href");
-            const isActive = linkTarget === `#${sectionId}`;
+      if (isActive) {
+        card.classList.add("is-active");
+      } else if (distance === -1) {
+        card.classList.add("is-prev-1");
+      } else if (distance === -2) {
+        card.classList.add("is-prev-2");
+      } else if (distance === -3) {
+        card.classList.add("is-prev-3");
+      } else if (distance === 1) {
+        card.classList.add("is-next-1");
+      } else if (distance === 2) {
+        card.classList.add("is-next-2");
+      } else if (distance === 3) {
+        card.classList.add("is-next-3");
+      } else {
+        card.classList.add("is-far");
+      }
 
-            link.classList.toggle("is-active", isActive);
-
-            if (isActive) {
-                link.setAttribute("aria-current", "true");
-            } else {
-                link.removeAttribute("aria-current");
-            }
-        });
-    };
-
-    if ("IntersectionObserver" in window) {
-        const sectionObserver = new IntersectionObserver(
-            (entries) => {
-                const visibleEntries = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort(
-                        (firstEntry, secondEntry) =>
-                            secondEntry.intersectionRatio -
-                            firstEntry.intersectionRatio
-                    );
-
-                const mostVisibleSection = visibleEntries[0];
-
-                if (mostVisibleSection) {
-                    setActiveLink(mostVisibleSection.target.id);
-                }
-            },
-            {
-                root: null,
-                rootMargin: "-28% 0px -58% 0px",
-                threshold: [0, 0.1, 0.25, 0.5]
-            }
-        );
-
-        sections.forEach((section) => {
-            sectionObserver.observe(section);
-        });
-
-        return;
-    }
-
-    /*
-        Alternativa para navegadores que no admiten
-        IntersectionObserver.
-    */
-    const updateActiveSection = () => {
-        const referencePosition =
-            window.scrollY + window.innerHeight * 0.4;
-
-        let currentSectionId = sections[0].id;
-
-        sections.forEach((section) => {
-            if (section.offsetTop <= referencePosition) {
-                currentSectionId = section.id;
-            }
-        });
-
-        setActiveLink(currentSectionId);
-    };
-
-    updateActiveSection();
-
-    window.addEventListener("scroll", updateActiveSection, {
-        passive: true
+      card.tabIndex = mobileQuery.matches || Math.abs(distance) <= 3 ? 0 : -1;
     });
+
+    const activeCard = cards[activeIndex];
+    const target = activeCard.dataset.target || "#perfil";
+    const title = activeCard.dataset.cardTitle || "Sección";
+
+    if (currentLabel) currentLabel.textContent = String(activeIndex + 1).padStart(2, "0");
+    if (titleLabel) titleLabel.textContent = title;
+    if (openLink) {
+      openLink.href = target;
+      openLink.setAttribute("aria-label", `Abrir sección ${title}`);
+    }
+
+    if (mobileQuery.matches && centerMobile) {
+      window.requestAnimationFrame(() => {
+        activeCard.scrollIntoView({
+          behavior: reducedMotionQuery.matches ? "auto" : "smooth",
+          block: "nearest",
+          inline: "center"
+        });
+      });
+    }
+  };
+
+  const activate = (index, options = {}) => {
+    activeIndex = (index + cards.length) % cards.length;
+    updateCards(options);
+  };
+
+  const openTarget = (card) => {
+    const targetSelector = card.dataset.target;
+    if (!targetSelector) return;
+    const target = document.querySelector(targetSelector);
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: reducedMotionQuery.matches ? "auto" : "smooth",
+      block: "start"
+    });
+  };
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      if (index === activeIndex) {
+        openTarget(card);
+      } else {
+        activate(index);
+      }
+    });
+  });
+
+  prevButton?.addEventListener("click", () => activate(activeIndex - 1));
+  nextButton?.addEventListener("click", () => activate(activeIndex + 1));
+
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      activate(activeIndex - 1);
+      cards[activeIndex].focus({ preventScroll: true });
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      activate(activeIndex + 1);
+      cards[activeIndex].focus({ preventScroll: true });
+    }
+    if (event.key === "Home") {
+      event.preventDefault();
+      activate(0);
+      cards[activeIndex].focus({ preventScroll: true });
+    }
+    if (event.key === "End") {
+      event.preventDefault();
+      activate(cards.length - 1);
+      cards[activeIndex].focus({ preventScroll: true });
+    }
+  });
+
+  track.addEventListener("pointerdown", (event) => {
+    pointerStartX = event.clientX;
+    pointerStartY = event.clientY;
+  });
+
+  track.addEventListener("pointerup", (event) => {
+    if (pointerStartX === null || pointerStartY === null) return;
+
+    const deltaX = event.clientX - pointerStartX;
+    const deltaY = event.clientY - pointerStartY;
+    pointerStartX = null;
+    pointerStartY = null;
+
+    if (Math.abs(deltaX) < 55 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+    activate(deltaX < 0 ? activeIndex + 1 : activeIndex - 1);
+  });
+
+  mobileQuery.addEventListener("change", () => updateCards({ centerMobile: false }));
+  updateCards({ centerMobile: false });
 }
 
-
-
 /* =========================================================
-   5. ANIMACIONES DE APARICIÓN
+   ANIMACIONES DE APARICIÓN
 ========================================================= */
-
 function initializeRevealAnimations() {
-    const reducedMotionQuery = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    );
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const selectors = [
+    ".section-heading",
+    ".profile__image",
+    ".profile__content",
+    ".case-study__header",
+    ".case-study__cover",
+    ".case-study__information",
+    ".project-gallery__item",
+    ".metric-card",
+    ".contact__content",
+    ".contact-form"
+  ];
 
-    const revealSelectors = [
-        ".section-heading",
-        ".project-card",
-        ".case-study__header",
-        ".case-study__cover",
-        ".case-study__information",
-        ".project-gallery__item",
-        ".metric-card",
-        ".profile__image",
-        ".profile__content",
-        ".capability-card",
-        ".tools-panel",
-        ".result-card",
-        ".contact__content",
-        ".contact-form"
-    ];
+  const elements = document.querySelectorAll(selectors.join(","));
+  if (elements.length === 0) return;
 
-    const revealElements = document.querySelectorAll(
-        revealSelectors.join(",")
-    );
+  elements.forEach((element, index) => {
+    element.setAttribute("data-reveal", "");
+    element.style.transitionDelay = `${Math.min((index % 4) * 55, 165)}ms`;
+  });
 
-    if (revealElements.length === 0) {
-        return;
-    }
+  if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) {
+    elements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
 
-    revealElements.forEach((element, index) => {
-        element.setAttribute("data-reveal", "");
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        currentObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
+  );
 
-        /*
-            Se aplica una demora breve y limitada.
-            No se crean animaciones largas o excesivas.
-        */
-        const delay = Math.min((index % 4) * 70, 210);
-
-        element.style.transitionDelay = `${delay}ms`;
-    });
-
-    if (
-        reducedMotionQuery.matches ||
-        !("IntersectionObserver" in window)
-    ) {
-        revealElements.forEach((element) => {
-            element.classList.add("is-visible");
-            element.style.transitionDelay = "0ms";
-        });
-
-        return;
-    }
-
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-            });
-        },
-        {
-            root: null,
-            rootMargin: "0px 0px -8% 0px",
-            threshold: 0.12
-        }
-    );
-
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
-
-    reducedMotionQuery.addEventListener("change", (event) => {
-        if (!event.matches) {
-            return;
-        }
-
-        revealElements.forEach((element) => {
-            element.classList.add("is-visible");
-            element.style.transitionDelay = "0ms";
-            revealObserver.unobserve(element);
-        });
-    });
+  elements.forEach((element) => observer.observe(element));
 }
 
-
 /* =========================================================
-   6. FORMULARIO DE CONTACTO
+   FORMULARIO DE CONTACTO — conserva el comportamiento mailto
 ========================================================= */
-
 function initializeContactForm() {
-    const contactForm = document.querySelector(
-        "[data-contact-form]"
-    );
+  const contactForm = document.querySelector("[data-contact-form]");
+  const formStatus = document.querySelector("[data-form-status]");
+  if (!contactForm) return;
 
-    const formStatus = document.querySelector(
-        "[data-form-status]"
-    );
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    if (!contactForm) {
-        return;
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      if (formStatus) formStatus.textContent = "Revisá los campos obligatorios antes de continuar.";
+      return;
     }
 
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+    const formData = new FormData(contactForm);
+    const name = String(formData.get("nombre") || "").trim();
+    const email = String(formData.get("correo") || "").trim();
+    const subject = String(formData.get("asunto") || "").trim();
+    const message = String(formData.get("mensaje") || "").trim();
+    const formAction = contactForm.getAttribute("action") || "";
+    const recipient = formAction.replace(/^mailto:/i, "").split("?")[0].trim();
 
-        if (!contactForm.checkValidity()) {
-            contactForm.reportValidity();
+    if (!recipient) {
+      if (formStatus) formStatus.textContent = "No se encontró una dirección de correo válida.";
+      return;
+    }
 
-            if (formStatus) {
-                formStatus.textContent =
-                    "Revisá los campos obligatorios antes de continuar.";
-            }
+    const mailtoUrl =
+      `mailto:${recipient}` +
+      `?subject=${encodeURIComponent(subject || "Consulta desde el portfolio")}` +
+      `&body=${encodeURIComponent([`Nombre: ${name}`, `Correo: ${email}`, "", "Mensaje:", message].join("\n"))}`;
 
-            return;
-        }
-
-        const formData = new FormData(contactForm);
-
-        const name =
-            String(formData.get("nombre") || "").trim();
-
-        const email =
-            String(formData.get("correo") || "").trim();
-
-        const subject =
-            String(formData.get("asunto") || "").trim();
-
-        const message =
-            String(formData.get("mensaje") || "").trim();
-
-        const formAction =
-            contactForm.getAttribute("action") || "";
-
-        const recipient = formAction
-            .replace(/^mailto:/i, "")
-            .split("?")[0]
-            .trim();
-
-        if (!recipient) {
-            if (formStatus) {
-                formStatus.textContent =
-                    "No se encontró una dirección de correo válida.";
-            }
-
-            return;
-        }
-
-        const emailSubject =
-            subject || "Consulta desde el portfolio";
-
-        const emailBody = [
-            `Nombre: ${name}`,
-            `Correo: ${email}`,
-            "",
-            "Mensaje:",
-            message
-        ].join("\n");
-
-        const mailtoUrl =
-            `mailto:${recipient}` +
-            `?subject=${encodeURIComponent(emailSubject)}` +
-            `&body=${encodeURIComponent(emailBody)}`;
-
-        if (formStatus) {
-            formStatus.textContent =
-                "Se abrirá tu aplicación de correo para completar el envío.";
-        }
-
-        /*
-            No se muestra una confirmación falsa.
-            El mensaje todavía debe enviarse desde el cliente de correo.
-        */
-        window.location.href = mailtoUrl;
-    });
+    if (formStatus) formStatus.textContent = "Se abrirá tu aplicación de correo para completar el envío.";
+    window.location.href = mailtoUrl;
+  });
 }
 
-
 /* =========================================================
-   7. VISUALIZACIÓN COMPLETA DE IMÁGENES
+   LIGHTBOX DE GALERÍAS
 ========================================================= */
 function initializeImageLightbox() {
-    const lightbox = document.querySelector("[data-image-lightbox]");
-    const lightboxImage = document.querySelector("[data-lightbox-image]");
-    const closeButtons = document.querySelectorAll("[data-lightbox-close]");
-    const galleryImages = document.querySelectorAll(
-        ".project-gallery__image:not([data-no-lightbox])"
-    );
+  const lightbox = document.querySelector("[data-image-lightbox]");
+  const lightboxImage = document.querySelector("[data-lightbox-image]");
+  const closeButtons = document.querySelectorAll("[data-lightbox-close]");
+  const galleryImages = document.querySelectorAll(".project-gallery__image:not([data-no-lightbox])");
 
-    if (!lightbox || !lightboxImage || galleryImages.length === 0) {
-        return;
-    }
+  if (!lightbox || !lightboxImage || galleryImages.length === 0) return;
 
-    let previousFocus = null;
+  let previousFocus = null;
 
-    const closeLightbox = () => {
-        lightbox.classList.remove("is-open");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("lightbox-open");
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
 
-        window.setTimeout(() => {
-            lightbox.hidden = true;
-            lightboxImage.removeAttribute("src");
-            if (previousFocus instanceof HTMLElement) previousFocus.focus();
-        }, 180);
-    };
+    window.setTimeout(() => {
+      lightbox.hidden = true;
+      lightboxImage.removeAttribute("src");
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    }, 180);
+  };
 
-    const openLightbox = (image) => {
-        previousFocus = document.activeElement;
-        lightboxImage.src = image.currentSrc || image.src;
-        lightboxImage.alt = image.alt || "Imagen ampliada";
-        lightbox.hidden = false;
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("lightbox-open");
-        window.requestAnimationFrame(() => lightbox.classList.add("is-open"));
-        lightbox.querySelector(".image-lightbox__close")?.focus();
-    };
+  const openLightbox = (image) => {
+    previousFocus = document.activeElement;
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt || "Imagen ampliada";
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    window.requestAnimationFrame(() => lightbox.classList.add("is-open"));
+    lightbox.querySelector(".image-lightbox__close")?.focus();
+  };
 
-    galleryImages.forEach((image) => {
-        image.classList.add("is-lightbox-enabled");
-        image.setAttribute("tabindex", "0");
-        image.setAttribute("role", "button");
-        image.setAttribute("aria-label", `${image.alt || "Imagen"}. Ver imagen completa`);
-        image.addEventListener("click", () => openLightbox(image));
-        image.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                openLightbox(image);
-            }
-        });
+  galleryImages.forEach((image) => {
+    image.classList.add("is-lightbox-enabled");
+    image.setAttribute("tabindex", "0");
+    image.setAttribute("role", "button");
+    image.setAttribute("aria-label", `${image.alt || "Imagen"}. Ver imagen completa`);
+    image.addEventListener("click", () => openLightbox(image));
+    image.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(image);
+      }
     });
+  });
 
-    closeButtons.forEach((button) => button.addEventListener("click", closeLightbox));
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
-    });
+  closeButtons.forEach((button) => button.addEventListener("click", closeLightbox));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+  });
 }
